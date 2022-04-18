@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object : MonoBehaviour
+public class DestroyObject : MonoBehaviour
 {
     public float dist = 0.2f;    
     public GameObject Player;    
