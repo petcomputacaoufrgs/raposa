@@ -16,9 +16,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused && inMenu)
             {
-                PauseMenuUI.SetActive(false);
-                inMenu = false;
-                Resume();
+                ResumeMenu();
             }
             else if (!inMap)
             {
@@ -44,8 +42,16 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
+    private void Resume()
     {
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void ResumeMenu()
+    {
+        inMenu = false;
+        PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
