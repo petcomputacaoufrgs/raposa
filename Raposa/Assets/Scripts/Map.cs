@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+/*public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject PauseMenuUI;
     public GameObject MapUI;
-    private bool inMenu = false;
-    private bool inMap = false;
 
     private void Update()
     {
@@ -62,13 +59,5 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void LoadMenu()
-    {
-        //todo
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
+*/
