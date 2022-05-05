@@ -1,5 +1,0 @@
-Duração: 2 segundos (16 frames)
-
-Desenho 1 - 0 s
-Desenho 2 - 1 s
-Desenho 3 - 1.75 s
