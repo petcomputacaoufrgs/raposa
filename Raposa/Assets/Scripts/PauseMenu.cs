@@ -14,14 +14,20 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                Resume();
-            } else
+                MenuResume();
+            }
+            else if (Map.InMap)
+            {
+                FindObjectOfType<Map>().MapResume();
+                Pause();
+            }
+            else
             {
                 Pause();
             }
         }
     }           
-    public void Resume()
+    public void MenuResume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;

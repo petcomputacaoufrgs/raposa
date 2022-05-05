@@ -2098,7 +2098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1951940567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,9 +2108,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1951940566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a79aee114fdc5b479719d9473d3a059, type: 3}
+  m_Script: {fileID: 11500000, guid: d816e865b665c3843a68659d47e0877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapUI: {fileID: 719191170}
 --- !u!114 &1951940568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,7 +2354,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 596530646}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: MenuResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

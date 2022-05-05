@@ -2,62 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class PauseMenu : MonoBehaviour
+public class Map : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool InMap = false;
     public GameObject MapUI;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            if (GameIsPaused && inMenu)
+            if (InMap)
             {
-                ResumeMenu();
+                MapResume();
             }
-            else if (!inMap)
+            else if(PauseMenu.GameIsPaused)
             {
-                PauseMenuUI.SetActive(true);
-                inMenu = true;
-                Pause();
+                FindObjectOfType<PauseMenu>().MenuResume();
+                SetMap();
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (GameIsPaused && inMap)
+            else
             {
-                MapUI.SetActive(false);
-                inMap = false;
-                Resume();
-            }
-            else if (!inMenu)
-            {
-                MapUI.SetActive(true);
-                inMap = true;
-                Pause();
+                SetMap();
             }
         }
     }
-
-    private void Resume()
+    public void MapResume()
     {
+        MapUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        InMap = false;
     }
-
-    public void ResumeMenu()
+    public void SetMap()
     {
-        inMenu = false;
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
-
-    private void Pause()
-    {
+        MapUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        InMap = true;
     }
 
 }
-*/
