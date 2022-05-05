@@ -11,14 +11,17 @@ public class DestroyObject : MonoBehaviour
     // Update is called once per frame
     void Update()    
     {
-        distanceObject = transform.position - Player.transform.position;
-        if (distanceObject.magnitude <= dist)
-        {            
-            Debug.Log("Distance:" + distanceObject.magnitude);
-            if(Input.GetButtonDown("Fire1"))
-            {                
-                Destroy(gameObject);
-            }           
+        if (!PauseMenu.GameIsPaused)
+        {
+            distanceObject = transform.position - Player.transform.position;
+            if (distanceObject.magnitude <= dist)
+            {
+                Debug.Log("Distance:" + distanceObject.magnitude);
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

@@ -17,20 +17,23 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        float xAxis = Input.GetAxisRaw("Horizontal");
-        float yAxis = Input.GetAxisRaw("Vertical");
-
-        direction = new Vector2(xAxis, yAxis);
-
-        animator.SetFloat("horizontal", direction.x);
-        animator.SetFloat("vertical", direction.y);
-        animator.SetFloat("speed", direction.sqrMagnitude);
-
-        if (direction != Vector2.zero)
+        if (!PauseMenu.GameIsPaused)
         {
-            animator.SetFloat("horizontalIdle", direction.x);
-            animator.SetFloat("verticalIdle", direction.y);
-        }
+            float xAxis = Input.GetAxisRaw("Horizontal");
+            float yAxis = Input.GetAxisRaw("Vertical");
+
+            direction = new Vector2(xAxis, yAxis);
+
+            animator.SetFloat("horizontal", direction.x);
+            animator.SetFloat("vertical", direction.y);
+            animator.SetFloat("speed", direction.sqrMagnitude);
+
+            if (direction != Vector2.zero)
+            {
+                animator.SetFloat("horizontalIdle", direction.x);
+                animator.SetFloat("verticalIdle", direction.y);
+            }
+        } 
     }
 
     private void FixedUpdate()

@@ -31,12 +31,14 @@ public class Map : MonoBehaviour
         MapUI.SetActive(false);
         Time.timeScale = 1f;
         InMap = false;
+        PauseMenu.GameIsPaused = false;
     }
     public void SetMap()
     {
         MapUI.SetActive(true);
         Time.timeScale = 0f;
         InMap = true;
+        PauseMenu.GameIsPaused = true;
     }
 
 }
