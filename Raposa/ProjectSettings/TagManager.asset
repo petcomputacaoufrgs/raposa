@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Forest Top
+    uniqueID: 402684039
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Forest
+    uniqueID: 1703891387
     locked: 0
