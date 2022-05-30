@@ -23,11 +23,13 @@ public class PickupItems : MonoBehaviour
             if (distanceObject.magnitude <= dist)
             {
                 Debug.Log("Distance:" + distanceObject.magnitude);
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Fire1")||Input.GetKeyDown(KeyCode.Space))
                 {
                     Destroy(gameObject);
 
                     inGameUI.ReloadDiamondsText();
+                    
+                    inGameUI.EndGame();
 
                     Debug.Log("Number of diamonds: " + inGameUI.NumDiamonds);
                 }
