@@ -5,8 +5,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
-
+    public GameObject PauseMenuUI;
 
     private void Update()
     {
@@ -29,14 +28,16 @@ public class PauseMenu : MonoBehaviour
     }           
     public void MenuResume()
     {
-        pauseMenuUI.SetActive(false);
+        PauseMenuUI.SetActive(false);
+        FindObjectOfType<PlayerControl>().enabled = true;
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     private void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        PauseMenuUI.SetActive(true);
+        FindObjectOfType<PlayerControl>().enabled = false;
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
