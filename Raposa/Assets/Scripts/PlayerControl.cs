@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 direction;
     private Animator animator;
+    public bool Trigger = false;
 
     private void Start()
     {
@@ -17,23 +18,29 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        if (!PauseMenu.GameIsPaused)
+        float xAxis = Input.GetAxisRaw("Horizontal");
+        float yAxis = Input.GetAxisRaw("Vertical");
+
+        direction = new Vector2(xAxis, yAxis);
+
+        animator.SetFloat("horizontal", direction.x);
+        animator.SetFloat("vertical", direction.y);
+        animator.SetFloat("speed", direction.sqrMagnitude);
+
+        if (direction != Vector2.zero)
         {
-            float xAxis = Input.GetAxisRaw("Horizontal");
-            float yAxis = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("horizontalIdle", direction.x);
+            animator.SetFloat("verticalIdle", direction.y);
+        }
 
-            direction = new Vector2(xAxis, yAxis);
-
-            animator.SetFloat("horizontal", direction.x);
-            animator.SetFloat("vertical", direction.y);
-            animator.SetFloat("speed", direction.sqrMagnitude);
-
-            if (direction != Vector2.zero)
-            {
-                animator.SetFloat("horizontalIdle", direction.x);
-                animator.SetFloat("verticalIdle", direction.y);
-            }
-        } 
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Trigger = true;
+        }
+        else
+        {
+            Trigger = false;
+        }
     }
 
     private void FixedUpdate()

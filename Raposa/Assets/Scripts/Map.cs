@@ -29,6 +29,7 @@ public class Map : MonoBehaviour
     public void MapResume()
     {
         MapUI.SetActive(false);
+        FindObjectOfType<PlayerControl>().enabled = true;
         Time.timeScale = 1f;
         InMap = false;
         PauseMenu.GameIsPaused = false;
@@ -36,6 +37,7 @@ public class Map : MonoBehaviour
     public void SetMap()
     {
         MapUI.SetActive(true);
+        FindObjectOfType<PlayerControl>().enabled = false;
         Time.timeScale = 0f;
         InMap = true;
         PauseMenu.GameIsPaused = true;

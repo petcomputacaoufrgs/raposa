@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    public float dist = 0.2f;    
-    public GameObject Player;    
-    Vector2 distanceObject; 
+    public float Dist = 0.2f;
+    public GameObject Player;
+    public Vector2 DistanceObject;
 
     // Update is called once per frame
-    void Update()    
+    void Update()
     {
-        if (!PauseMenu.GameIsPaused)
+        if (Player.GetComponent<PlayerControl>().Trigger)
         {
-            distanceObject = transform.position - Player.transform.position;
-            if (distanceObject.magnitude <= dist)
+            DistanceObject = transform.position - Player.transform.position;
+            if (DistanceObject.magnitude <= Dist)
             {
-                Debug.Log("Distance:" + distanceObject.magnitude);
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    Destroy(gameObject);
-                }
+                Debug.Log("Distance:" + DistanceObject.magnitude);
+                
+                Destroy(gameObject);
             }
         }
     }

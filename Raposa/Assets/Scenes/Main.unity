@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f858e252d103d40af23bf40619e160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 1638143943}
+  PauseMenuUI: {fileID: 1638143943}
 --- !u!1 &654127725
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,8 +981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f8554030696d245a8c0c001deea0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: 0.5
+  Dist: 0.2
   Player: {fileID: 1199603986}
+  DistanceObject: {x: 0, y: 0}
 --- !u!212 &709023021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1221,6 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1199603986}
+  DistanceCamera: {x: 0, y: 0, z: 0}
 --- !u!1 &1072352923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.7
+  Trigger: 0
 --- !u!50 &1199603988
 Rigidbody2D:
   serializedVersion: 4
