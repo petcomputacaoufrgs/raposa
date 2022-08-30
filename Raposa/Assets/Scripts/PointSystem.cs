@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PointSystem : MonoBehaviour
 {
-    public static int Points {get;private set;}= 0;
+    public static int Points {get;private set;} = 0;
     private static Text textPoints;
     private void Start()
     {
