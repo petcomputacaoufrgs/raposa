@@ -66,6 +66,13 @@ public class InventorySystem : MonoBehaviour
         }
         slots.Clear(); //Clears the list
     }
+    /// <summary>Method for removing an Item from the inventory. CALL INSTEAD OF REMOVE AT, SAME SINTAX</summary>
+    public static void RemoveItem(int index)
+    {
+        Destroy(slots[index]); //Destroys the object
+        slots.RemoveAt(index); //Removes it from the list
+        UpdatePosition(); //Updates the HUD positions
+    }
     public static void UpSelected()
     {
         if(slots.Count == 0)
