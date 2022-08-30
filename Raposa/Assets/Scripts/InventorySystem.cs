@@ -20,7 +20,7 @@ public class InventorySystem : MonoBehaviour
     {
         //Variables initialization
         _vertical = System.Convert.ToInt16(Vertical);
-        if(RightOrDown) _direction = -1; else _direction = 1;
+        _direction = RightOrDown ? -1 : 1;
         
         //Inventory UI initialization
         if(InventoryLocation == null) InventoryLocation = GameObject.FindWithTag("InventoryLocation");
@@ -91,15 +91,7 @@ public class InventorySystem : MonoBehaviour
             Selected = 0; //Error checking //! Not divide by 0
             return;
         }
-
-        if(Selected == 0)
-        {
-            Selected = Slots.Count-1; //Edge case
-        }
-        else
-        {
-            Selected = Mathf.Abs((Selected-1)%Slots.Count); //Rolling HUD
-        }
+        Selected = (Selected == 0) ? Slots.Count-1 : Selected-1;
 
         UpdatePosition();
     }
@@ -112,7 +104,7 @@ public class InventorySystem : MonoBehaviour
         }
         
         //Cursor changes
-        if(Slots.Count == 0) selectorSprite.enabled = false; else selectorSprite.enabled = true;
+        selectorSprite.enabled = (Slots.Count == 0) ? false : true;
         while(Selected >= Slots.Count && Selected != 0) Selected--;
         selectorSprite.transform.position = PositionSetter(Selected); //Gets the right input position
     }
