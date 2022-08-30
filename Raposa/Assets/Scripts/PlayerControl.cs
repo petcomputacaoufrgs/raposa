@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 direction;
     private Animator animator;
-    public bool Trigger = false;
+    public static bool Trigger = false;
 
     private void Start()
     {
@@ -40,6 +40,25 @@ public class PlayerControl : MonoBehaviour
         else
         {
             Trigger = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            InventorySystem.ClearInventory();
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            InventorySystem.ClearSelected();
+        }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            InventorySystem.DownSelected();
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            InventorySystem.UpSelected();
         }
     }
 

@@ -5,20 +5,25 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour
 {
     public float Dist = 0.2f;
-    public GameObject Player;
-    public Vector2 DistanceObject;
+    private GameObject player;
+    public bool Consumable;
+    private Vector2 distanceObject;
 
     // Update is called once per frame
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
     void Update()
     {
-        if (Player.GetComponent<PlayerControl>().Trigger)
+        if (PlayerControl.Trigger)
         {
-            DistanceObject = transform.position - Player.transform.position;
-            if (DistanceObject.magnitude <= Dist)
+            distanceObject = transform.position - player.transform.position;
+            if (distanceObject.magnitude <= Dist)
             {
-                Debug.Log("Distance:" + DistanceObject.magnitude);
-                
-                Destroy(gameObject);
+                Debug.Log("Distance:" + distanceObject.magnitude);
+                PointSystem.AddPoints(100);
+                if(InventorySystem.AddItem(gameObject) && Consumable) Destroy(gameObject);
             }
         }
     }
