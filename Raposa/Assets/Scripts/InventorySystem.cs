@@ -15,7 +15,8 @@ public class InventorySystem : MonoBehaviour
     public List<GameObject> Slots {get; private set;} = new List<GameObject>(); //Inventory slots
     public GameObject InventoryLocation; //Location of the inventory on screen 
     private Image selectorSprite; //Image for the selector HUD
-    private static Vector2 offset; //Space between each Inventory position
+    private Vector2 offset; //Space between each Inventory position
+    private Vector3 originalSpritePosition; //Stores original position of cursor
     private void Start()
     {
         //Variables initialization
@@ -23,10 +24,18 @@ public class InventorySystem : MonoBehaviour
         _direction = RightOrDown ? -1 : 1;
         
         //Inventory UI initialization
-        if(InventoryLocation == null) InventoryLocation = GameObject.FindWithTag("InventoryLocation");
+        if(InventoryLocation == null) 
+        {
+            InventoryLocation = GameObject.FindWithTag("InventoryLocation");
+        }
         offset = InventoryLocation.GetComponent<SpriteRenderer>().transform.lossyScale;
         selectorSprite = InventoryLocation.GetComponentInChildren<Image>();
-        if(AutoCenter) selectorSprite.transform.position = InventoryLocation.transform.position;
+
+        if(AutoCenter) 
+        {
+            selectorSprite.transform.position = InventoryLocation.transform.position;
+        }
+        originalSpritePosition = selectorSprite.transform.position;
         UpdatePosition();
     }
     public bool AddItem(GameObject item)
@@ -46,7 +55,10 @@ public class InventorySystem : MonoBehaviour
     }
     public void ClearSelected()
     {   
-        if(Selected > Slots.Count || Slots.Count == 0) return; //Error checking
+        if(Selected > Slots.Count || Slots.Count == 0) 
+        {
+            return; //Error checking
+        }
 
         if(Slots[Selected] != null)
         {
@@ -100,20 +112,23 @@ public class InventorySystem : MonoBehaviour
         //List Changes
         foreach (var item in Slots)
         {
-            item.GetComponent<Image>().transform.position = PositionSetter(Slots.IndexOf(item)); //Updates the position of everything on the list
+            item.GetComponent<Image>().transform.position = PositionSetter(InventoryLocation, Slots.IndexOf(item)); //Updates the position of everything on the list
         }
         
         //Cursor changes
-        selectorSprite.enabled = (Slots.Count == 0) ? false : true;
-        while(Selected >= Slots.Count && Selected != 0) Selected--;
+        selectorSprite.enabled = System.Convert.ToBoolean(Slots.Count);
+        while(Selected >= Slots.Count && Selected != 0)
+        { 
+            Selected--;
+        }
         selectorSprite.transform.position = PositionSetter(Selected); //Gets the right input position
     }
     private Vector3 PositionSetter(int op)
     {
         Vector3 blah = new Vector3 (
-                selectorSprite.transform.position.x + _direction*(_vertical-1)*offset.x*op, //Adds the location of the anchor to the offset
-                InventoryLocation.transform.position.y + _direction*_vertical*offset.y*op, //Adds the location of the anchor to the offset
-                selectorSprite.transform.position.z
+                originalSpritePosition.x + _direction*(_vertical-1)*offset.x*op, //Adds the location of the anchor to the offset
+                originalSpritePosition.y + _direction*_vertical*offset.y*op, //Adds the location of the anchor to the offset
+                originalSpritePosition.z
         );
         return blah; //Returns the right vector3
     }
