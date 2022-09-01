@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public GameObject Player;
-    public Vector3 DistanceCamera;
+    private GameObject player;
+    private Vector3 distanceCamera;
 
     private void Start()
     {
-        DistanceCamera = transform.position - Player.transform.position;
+        player = GameObject.FindWithTag("Player");
+        distanceCamera = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.position = Player.transform.position + DistanceCamera;
+        transform.position = player.transform.position + distanceCamera;
     }
 }

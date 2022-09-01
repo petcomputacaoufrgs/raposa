@@ -9,11 +9,13 @@ public class PlayerControl : MonoBehaviour
     private Vector2 direction;
     private Animator animator;
     public bool Trigger = false;
+    private InventorySystem inventorySystem;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        inventorySystem = GetComponent<InventorySystem>();
     }
 
     private void Update()
@@ -41,12 +43,31 @@ public class PlayerControl : MonoBehaviour
         {
             Trigger = false;
         }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            inventorySystem.ClearInventory();
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            inventorySystem.ClearSelected();
+        }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            inventorySystem.DownSelected();
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            inventorySystem.UpSelected();
+        }
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition
             (rb.position +
-            (direction.normalized * Speed * Time.fixedDeltaTime));
+            (Speed * Time.fixedDeltaTime * direction.normalized));
     }
 }

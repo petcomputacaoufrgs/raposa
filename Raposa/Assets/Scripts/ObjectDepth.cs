@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class ObjectDepth : MonoBehaviour
 {
-    public GameObject Player;
+    private GameObject player;
     private float delta;
     private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        delta = Player.transform.position.y - transform.position.y;
+        delta = player.transform.position.y - transform.position.y;
 
         if (delta <= 0)
             spriteRenderer.sortingOrder = 1;
