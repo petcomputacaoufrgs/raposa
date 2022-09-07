@@ -44,9 +44,18 @@ public class InventorySystem : MonoBehaviour
         {
             GameObject _item = Instantiate(item, InventoryLocation.transform); //Copy the object
             Debug.Log("Adding " + _item);
-            _item.AddComponent<Image>(); //Adds the sprite thats going to appear in the hotbar
+
+            _item.GetComponent<SpriteRenderer>().enabled = false;
+
+            if(_item.GetComponent<Image>() == null)
+            {
+                _item.AddComponent<Image>(); //Adds the sprite thats going to appear in the hotbar
+                _item.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+            }
+            
+            _item.GetComponent<Image>().enabled = true;
             _item.GetComponent<Image>().transform.position = PositionSetter(InventoryLocation, Slots.Count);
-            _item.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+            
             Slots.Add(_item); //Adds to the list
             UpdatePosition();
             return true;
