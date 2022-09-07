@@ -10,7 +10,7 @@ public class PickUpable : MonoBehaviour
     public Sprite Needed; //If 'null' the item doesn't have prerequisits, else, determines the prerequisit
     public int PointsGained; //Determines if the player gains any points for finishing this action
     public int PointsLost; //Determines the points lost for failing this action
-    private bool client; //Determines if the object this script is attached is a Client (SWITCH TO USE TAG SYSTEM!!)
+    private bool client; //Determines if the object this script is attached is a Client
     private GameObject player; //Variable assigned to the player GameObject
     private Vector2 distanceObject; //Distance between the object and the player
     private PlayerControl playerControl; //Variable that points to the PlayerControl System, for getting the trigger
