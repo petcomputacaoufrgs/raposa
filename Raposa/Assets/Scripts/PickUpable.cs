@@ -7,10 +7,10 @@ public class PickUpable : MonoBehaviour
 {
     public float Dist = 0.2f; //Player distance to pickup item
     public bool Consumable; //Determines if the item will vanish after picking it up
-    public bool Client; //Determines if the object this script is attached is a Client (SWITCH TO USE TAG SYSTEM!!)
     public Sprite Needed; //If 'null' the item doesn't have prerequisits, else, determines the prerequisit
     public int PointsGained; //Determines if the player gains any points for finishing this action
     public int PointsLost; //Determines the points lost for failing this action
+    private bool client; //Determines if the object this script is attached is a Client (SWITCH TO USE TAG SYSTEM!!)
     private GameObject player; //Variable assigned to the player GameObject
     private Vector2 distanceObject; //Distance between the object and the player
     private PlayerControl playerControl; //Variable that points to the PlayerControl System, for getting the trigger
@@ -19,6 +19,7 @@ public class PickUpable : MonoBehaviour
 
     void Start()
     {
+        client = (gameObject.CompareTag("Client")) ? true : false; //Determines if the object is a client by it's tag
         //Makes all the variables point to the right place
         player = GameObject.FindWithTag("Player");
         playerControl = player.GetComponent<PlayerControl>();
@@ -41,10 +42,9 @@ public class PickUpable : MonoBehaviour
         pointSystem.AddPoints(PointsGained);
         //Need to determine what to do with the item
         
-        if (Client) //If it's a client
+        if (client) //If it's a client
         {
             inventorySystem.RemoveItemAt(inventorySystem.Selected); //Removes the item from the inventory
-            Destroy(gameObject); //Removes the Client
             return; //Terminates the function
         }
 

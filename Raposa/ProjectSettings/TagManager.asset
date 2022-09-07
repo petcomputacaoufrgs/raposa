@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InventoryLocation
   - PointTextLocation
+  - Client
   layers:
   - Default
   - TransparentFX
