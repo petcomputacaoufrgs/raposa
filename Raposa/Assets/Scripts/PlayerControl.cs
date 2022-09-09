@@ -54,11 +54,11 @@ public class PlayerControl : MonoBehaviour
             inventorySystem.ClearSelected();
         }
 
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.mouseScrollDelta.y == 1)
         {
             inventorySystem.DownSelected();
         }
-        if(Input.GetKeyDown(KeyCode.DownArrow))
+        if(Input.mouseScrollDelta.y == -1)
         {
             inventorySystem.UpSelected();
         }
