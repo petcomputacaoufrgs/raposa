@@ -19,24 +19,25 @@ public class DisplayOrder : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         display = new GameObject("display");
-        display.transform.parent = this.gameObject.transform;
-        display.transform.position = this.gameObject.transform.position;
-
-        displayRenderer = display.AddComponent<SpriteRenderer>();
-        displayRenderer.sprite = scriptPickUpable.Needed;
-        displayRenderer.sortingOrder = 4;
-        display.transform.localScale = new Vector2(0.65f, 0.65f);
-
         Vector2 displayPosition = display.transform.position;
+
+        display.transform.parent = transform;
+        displayPosition = transform.position;
+        display.transform.localScale = new Vector2(0.65f, 0.65f);
         displayPosition.x += 0.2f * (RigthOrLeft ? 1 : -1);
         displayPosition.y += 0.18f;
         display.transform.position = displayPosition;
 
-        backGroundOrder = Instantiate(display, this.transform);
-        backGroundOrderRenderer = backGroundOrder.GetComponent<SpriteRenderer>();
-        backGroundOrderRenderer.sprite = this.transform.parent.GetChild(0).GetComponent<SpriteRenderer>().sprite;
-        backGroundOrderRenderer.sortingOrder = 3;
+        displayRenderer = display.AddComponent<SpriteRenderer>();
+        displayRenderer.sprite = scriptPickUpable.Needed;
+        displayRenderer.sortingOrder = 4;
+        
+        backGroundOrder = Instantiate(display, transform);
         backGroundOrder.transform.localScale = new Vector2(0.20f, 0.20f);
+
+        backGroundOrderRenderer = backGroundOrder.GetComponent<SpriteRenderer>();
+        backGroundOrderRenderer.sprite = transform.parent.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+        backGroundOrderRenderer.sortingOrder = 3;
     }
 
     void Update()
@@ -55,13 +56,13 @@ public class DisplayOrder : MonoBehaviour
 
     private bool CheckIfInRange()
     {
-        Vector3 distanceObject = transform.position - player.transform.position; //Calculates the distance between player and object
+        Vector3 distanceObject = transform.position - player.transform.position;
 
-        if (distanceObject.magnitude > Range) //If the player is out of range
+        if (distanceObject.magnitude > Range)
         {
-            return false; //The item cannot be picked up
+            return false;
         }
 
-        return true; //If it passed all other checks, the item can be picked up
+        return true;
     }
 }
