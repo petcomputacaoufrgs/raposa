@@ -8,7 +8,7 @@ public class PickUpable : MonoBehaviour
     public float Dist = 0.2f; //Player distance to pickup item
     public bool Consumable; //Determines if the item will vanish after picking it up
     public Sprite Needed; //If 'null' the item doesn't have prerequisits, else, determines the prerequisit
-    public int PointsGained; //Determines if the player gains any points for finishing this action
+    public int PointsGained; //Determines if the player gains any points for finishing this actiond
     public int PointsLost; //Determines the points lost for failing this action
     private bool client; //Determines if the object this script is attached is a Client
     private GameObject player; //Variable assigned to the player GameObject
@@ -19,7 +19,7 @@ public class PickUpable : MonoBehaviour
 
     void Start()
     {
-        client = (gameObject.CompareTag("Client")) ? true : false; //Determines if the object is a client by it's tag
+        client = gameObject.CompareTag("Client"); //Determines if the object is a client by it's tag
         //Makes all the variables point to the right place
         player = GameObject.FindWithTag("Player");
         playerControl = player.GetComponent<PlayerControl>();
@@ -45,6 +45,7 @@ public class PickUpable : MonoBehaviour
         if (client) //If it's a client
         {
             inventorySystem.RemoveItemAt(inventorySystem.Selected); //Removes the item from the inventory
+            Destroy(gameObject); //Destroys the client
             return; //Terminates the function
         }
 
