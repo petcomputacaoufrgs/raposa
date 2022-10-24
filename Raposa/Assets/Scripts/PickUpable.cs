@@ -38,9 +38,6 @@ public class PickUpable : MonoBehaviour
             pointSystem.RemovePoints(PointsLost); //If not, removes points from the total
             return; //Terminates the function
         }
-        //All primary checks passed, can now add points
-        pointSystem.AddPoints(PointsGained);
-        //Need to determine what to do with the item
         
         if (client) //If it's a client
         {
@@ -49,6 +46,9 @@ public class PickUpable : MonoBehaviour
             return; //Terminates the function
         }
 
+        //All primary checks passed, can now add points
+        pointSystem.AddPoints(PointsGained);
+        //Need to determine what to do with the item
 
         if (Needed == null) //If the item doesn't have prerequisits
         {
