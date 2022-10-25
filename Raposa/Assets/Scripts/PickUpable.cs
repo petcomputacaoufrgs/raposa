@@ -8,13 +8,10 @@ public class PickUpable : MonoBehaviour
     public float Dist = 0.2f; //Player distance to pickup item
     public bool Consumable; //Determines if the item will vanish after picking it up
     public Sprite Needed; //If 'null' the item doesn't have prerequisits, else, determines the prerequisit
-    public int PointsGained; //Determines if the player gains any points for finishing this actiond
-    public int PointsLost; //Determines the points lost for failing this action
     private bool client; //Determines if the object this script is attached is a Client
     private GameObject player; //Variable assigned to the player GameObject
     private Vector2 distanceObject; //Distance between the object and the player
     private PlayerControl playerControl; //Variable that points to the PlayerControl System, for getting the trigger
-    private PointSystem pointSystem; //Variable that points to the PointSystem, for adding and subtracting points
     private InventorySystem inventorySystem; //Variable for manipulating the inventory
 
     void Start()
@@ -23,22 +20,15 @@ public class PickUpable : MonoBehaviour
         //Makes all the variables point to the right place
         player = GameObject.FindWithTag("Player");
         playerControl = player.GetComponent<PlayerControl>();
-        pointSystem = player.GetComponent<PointSystem>();
         inventorySystem = player.GetComponent<InventorySystem>();
     }
     void Update()
     {
-        if (!CheckIfInRange()) //Tests if the player is in range
+        if (!CheckIfInRange() || !CheckSelectedItem()) //Tests if the player is in range or if the item selected is correct
         {
             return; //If not, terminates the function
         }
 
-        if (!CheckSelectedItem()) //Tests if the item selected is correct
-        {
-            pointSystem.RemovePoints(PointsLost); //If not, removes points from the total
-            return; //Terminates the function
-        }
-        
         if (client) //If it's a client
         {
             inventorySystem.RemoveItemAt(inventorySystem.Selected); //Removes the item from the inventory
@@ -46,10 +36,7 @@ public class PickUpable : MonoBehaviour
             return; //Terminates the function
         }
 
-        //All primary checks passed, can now add points
-        pointSystem.AddPoints(PointsGained);
-        //Need to determine what to do with the item
-
+        //All primary checks passed, Need to determine what to do with the item
         if (Needed == null) //If the item doesn't have prerequisits
         {
             if (inventorySystem.AddItem(gameObject)) //Adds the new item to the inventory
