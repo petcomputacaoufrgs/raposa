@@ -12,7 +12,7 @@ public class NPCSpawn : MonoBehaviour
     void Start()
     {
         Clients = GameObject.Find("Clients"); // Find the parent of the clients
-        ClientPrefabs = Resources.LoadAll<GameObject>("Clients"); // Load all the client prefabs
+        ClientPrefabs = Resources.LoadAll<GameObject>("Cafeteria/Clients"); // Load all the client prefabs
     }
 
     void Update()

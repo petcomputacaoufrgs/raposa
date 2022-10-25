@@ -22,7 +22,7 @@ public class NPCPoints : MonoBehaviour
     {
         pointSystem = GameObject.FindWithTag("Player").GetComponent<PointSystem>();
         TimerPosition += transform.position;
-        displayTimer = Instantiate(Resources.Load<GameObject>("Circle"), TimerPosition, new Quaternion(0f, 0f, 0f, 0f), transform);
+        displayTimer = Instantiate(Resources.Load<GameObject>("Cafeteria/Circle"), TimerPosition, new Quaternion(0f, 0f, 0f, 0f), transform);
         displayTimerSprite = displayTimer.GetComponent<SpriteRenderer>();
         points = MaxPoints;
         originalScale = displayTimer.transform.localScale.x;
