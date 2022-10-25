@@ -59,5 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigthOrLeft: 1
   Range: 1
+  Offset: {x: 0.275, y: 0.2, z: 0}
+  Scale: {x: 0.65, y: 0.65}
