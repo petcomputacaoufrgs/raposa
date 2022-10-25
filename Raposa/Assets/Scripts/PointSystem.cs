@@ -25,6 +25,6 @@ public class PointSystem : MonoBehaviour
     }
     private void UpdateText()
     {
-        TextPoints.text = "Points: " + Points.ToString();
+        if(TextPoints != null) TextPoints.text = "Points: " + Points.ToString();
     }
 }

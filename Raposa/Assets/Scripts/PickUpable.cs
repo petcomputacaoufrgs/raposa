@@ -72,8 +72,9 @@ public class PickUpable : MonoBehaviour
             return false; //Returns false, prevents acessing an index out of range
         }
 
-        if (inventorySystem.Slots[selection].GetComponent<Image>().sprite == Needed) //If the sprite is the same as the prerequisits 
+        if (inventorySystem.GetItemAt(selection).GetComponent<Image>().sprite == Needed) //If the sprite is the same as the prerequisits 
         {
+            Debug.Log("Correct Item");
             return true;
         }
 

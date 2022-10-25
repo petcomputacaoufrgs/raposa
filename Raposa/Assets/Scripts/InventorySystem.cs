@@ -40,11 +40,15 @@ public class InventorySystem : MonoBehaviour
     }
     public GameObject CreateItem(GameObject item)
     {
-        GameObject _item = Instantiate(item, InventoryLocation.transform); //Copy the object
+        GameObject Background = Instantiate(Resources.Load<GameObject>("Cafeteria/BaseSlot"), InventoryLocation.transform);
+        Background.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+        Background.GetComponent<Image>().transform.position = PositionSetter(InventoryLocation, Slots.Count);
+        
+        GameObject _item = Instantiate(item, Background.transform); //Copy the object
         Debug.Log("Adding " + _item);
-        _item.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
-
+        _item.GetComponent<RectTransform>().sizeDelta = new Vector2(0.666667f, 0.666667f);
         _item.GetComponent<SpriteRenderer>().enabled = false;
+        _item.GetComponent<Image>().transform.position = PositionSetter(InventoryLocation, Slots.Count);
 
         if (_item.GetComponent<Image>() == null)
         {
@@ -53,8 +57,7 @@ public class InventorySystem : MonoBehaviour
         }
 
         _item.GetComponent<Image>().enabled = true;
-        _item.GetComponent<Image>().transform.position = PositionSetter(InventoryLocation, Slots.Count);
-        return _item;
+        return Background;
     }
     public bool AddItem(GameObject item)
     {
@@ -105,6 +108,10 @@ public class InventorySystem : MonoBehaviour
         Slots.RemoveAt(index); //Removes it from the list
         UpdatePosition(); //Updates the HUD positions
     }
+    public GameObject GetItemAt(int index)
+    {
+        return Slots[index].transform.GetChild(0).gameObject;
+    }
     public void UpSelected()
     {
         if (Slots.Count == 0)
@@ -134,6 +141,7 @@ public class InventorySystem : MonoBehaviour
         foreach (var item in Slots)
         {
             item.GetComponent<Image>().transform.position = PositionSetter(InventoryLocation, Slots.IndexOf(item)); //Updates the position of everything on the list
+            item.GetComponentInChildren<Image>().transform.position = PositionSetter(InventoryLocation, Slots.IndexOf(item));
         }
 
         //Cursor changes

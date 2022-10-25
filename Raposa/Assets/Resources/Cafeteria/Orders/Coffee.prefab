@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1380348928645611626, guid: f5c064bdbc1e24c44871fcef1f7a3d7d, type: 3}
+      propertyPath: Needed
+      value: 
+      objectReference: {fileID: 21300000, guid: 7503b6541b85ed049b9739056b98f13f, type: 3}
     - target: {fileID: 1510116087369725317, guid: f5c064bdbc1e24c44871fcef1f7a3d7d, type: 3}
       propertyPath: m_Name
-      value: Order
+      value: Coffee
       objectReference: {fileID: 0}
     - target: {fileID: 6509407707064610925, guid: f5c064bdbc1e24c44871fcef1f7a3d7d, type: 3}
       propertyPath: m_RootOrder
