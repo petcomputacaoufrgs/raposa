@@ -23,9 +23,13 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2290805569720294607, guid: b56c54d7fed1e2340974ec17c1ac6334, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e972aa2281e5d25438e0b982de2a63d0, type: 2}
     - target: {fileID: 4762317477400691139, guid: b56c54d7fed1e2340974ec17c1ac6334, type: 3}
       propertyPath: m_Name
-      value: Client Variant
+      value: Claudio
       objectReference: {fileID: 0}
     - target: {fileID: 6943565794282170485, guid: b56c54d7fed1e2340974ec17c1ac6334, type: 3}
       propertyPath: m_RootOrder
