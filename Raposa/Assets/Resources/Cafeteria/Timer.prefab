@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7271886339320778250}
   - component: {fileID: 4488129507522231923}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
