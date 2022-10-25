@@ -553,8 +553,6 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: 85f3084901e55c9448548503be31e21d, type: 3}
-  PointsGained: 0
-  PointsLost: 0
 --- !u!212 &198192187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1179,8 +1177,6 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: 238d2dc34981d8148ac1a3fba2f2ef38, type: 3}
-  PointsGained: 0
-  PointsLost: 0
 --- !u!212 &597648521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1286,8 +1282,6 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: e36b1a0a730137849aa373e9695a20c7, type: 3}
-  PointsGained: 0
-  PointsLost: 0
 --- !u!114 &608937708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,8 +1455,6 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: fe1b8a00efae217438fc90208dff3533, type: 3}
-  PointsGained: 0
-  PointsLost: 0
 --- !u!114 &633693845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,8 +1865,6 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 0}
-  PointsGained: 0
-  PointsLost: 0
 --- !u!114 &752729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,8 +2616,6 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 0}
-  PointsGained: 0
-  PointsLost: 0
 --- !u!114 &1439597955
 MonoBehaviour:
   m_ObjectHideFlags: 0

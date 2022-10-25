@@ -7,12 +7,14 @@ public class NPCSpawn : MonoBehaviour
     public Vector2[] SpawnArea; // Array of spawn area
     private float timer = 0f; // Timer
     private GameObject Clients; // Parent of the clients
-    private GameObject[] ClientPrefabs; // Array of client prefabs
+    private GameObject[] ClientSprites; // Array of client sprites
+    private GameObject[] ClientOrders; // Array of client orders
 
     void Start()
     {
         Clients = GameObject.Find("Clients"); // Find the parent of the clients
-        ClientPrefabs = Resources.LoadAll<GameObject>("Cafeteria/Clients"); // Load all the client prefabs
+        ClientSprites = Resources.LoadAll<GameObject>("Cafeteria/Clients"); // Load all the client prefabs
+        ClientOrders = Resources.LoadAll<GameObject>("Cafeteria/Orders"); // Load all the order prefabs
     }
 
     void Update()
@@ -28,10 +30,26 @@ public class NPCSpawn : MonoBehaviour
     {
         if (Client[i] == null) // If the client is null
         {
-            Client[i] = Instantiate(ClientPrefabs[Random.Range(0, ClientPrefabs.Length)], Clients.transform); // Spawn a random client
+            Client[i] = MakeRandomNPC(); // Spawn a random client
             Client[i].transform.position = SpawnArea[i]; // Set the position of the client
             Debug.Log("Spawned NPC in position " + i); // Log the spawn
         }
+    }
+    GameObject MakeRandomNPC()
+    {
+        GameObject NPC = Instantiate(ClientSprites[Random.Range(0, ClientSprites.Length)], Clients.transform); // Spawn a random client
+        Component[] Orders = ClientOrders[Random.Range(0, ClientOrders.Length)].GetComponents<Component>();
+
+        foreach (Component Order in Orders)
+        {
+            if (Order.GetType() != typeof(Transform))
+            {
+                UnityEditorInternal.ComponentUtility.CopyComponent(Order);
+                UnityEditorInternal.ComponentUtility.PasteComponentAsNew(NPC);
+            }
+        }
+
+        return NPC;
     }
 }
 
