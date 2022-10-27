@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 1
-  Offset: {x: 0.275, y: 0.2, z: 0}
-  Scale: {x: 0.65, y: 0.65}
+  RangeToAppear: 1
+  OrderInLayer: 4
+  positionOrder: {x: 0.3, y: 0.2, z: 0}
+  InverseAmplitudeShake: 30
+  VelocityShake: 3

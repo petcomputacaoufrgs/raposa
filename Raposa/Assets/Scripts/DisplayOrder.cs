@@ -4,38 +4,44 @@ using UnityEngine;
 
 public class DisplayOrder : MonoBehaviour
 {
-    public float Range = 1f;
-    public Vector3 Offset = new Vector3(0.28f, 0.2f, 0f);
+    public float RangeToAppear = 1f;
     public int OrderInLayer = 4;
+    public Vector3 positionOrder;
+    public float InverseAmplitudeShake;
+    public float VelocityShake;
+    private float timerDisplay = 0f;
     private GameObject player;
+    private GameObject father;
     private GameObject display;
-    private GameObject backGroundOrder;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        
-        display = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), transform);
-        backGroundOrder = Instantiate(Resources.Load<GameObject>("Cafeteria/Background"), transform);
 
-        display.transform.position += Offset;
-        backGroundOrder.transform.position += Offset;
+        father = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), transform);
+        display = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), father.transform);
+        Instantiate(Resources.Load<GameObject>("Cafeteria/Background"), father.transform);
+
+        father.transform.localPosition = positionOrder;
 
         SpriteRenderer displayRenderer = display.AddComponent<SpriteRenderer>();
         displayRenderer.sprite = GetComponent<PickUpable>().Needed;
         displayRenderer.sortingOrder = OrderInLayer;
+
     }
 
     void Update()
     {
+        timerDisplay += Time.deltaTime * VelocityShake;
+        father.transform.localPosition = new Vector3(positionOrder.x, positionOrder.y + Mathf.Sin(timerDisplay) / InverseAmplitudeShake, positionOrder.z);
+
         if (CheckIfInRange())
         {
-            display.SetActive(true);
-            backGroundOrder.SetActive(true);
+            father.SetActive(true);
         }
         else
         {
-            display.SetActive(false);
-            backGroundOrder.SetActive(false);
+            father.SetActive(false);
         }
     }
 
@@ -43,7 +49,7 @@ public class DisplayOrder : MonoBehaviour
     {
         Vector3 distanceObject = transform.position - player.transform.position;
 
-        if (distanceObject.magnitude > Range)
+        if (distanceObject.magnitude > RangeToAppear)
         {
             return false;
         }
