@@ -9,10 +9,18 @@ public class DisplayOrder : MonoBehaviour
     public Vector3 positionOrder;
     public float InverseAmplitudeShake;
     public float VelocityShake;
+    public float AlfaTransitionSpeed = 1f;
+
     private float timerDisplay = 0f;
     private GameObject player;
     private GameObject father;
+
     private GameObject display;
+    private SpriteRenderer displayRenderer;
+    private GameObject displayBackground;
+    private SpriteRenderer displayBackgroundRenderer;
+
+    private Color alfaTransitionColor;
 
     void Start()
     {
@@ -20,14 +28,20 @@ public class DisplayOrder : MonoBehaviour
 
         father = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), transform);
         display = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), father.transform);
-        Instantiate(Resources.Load<GameObject>("Cafeteria/Background"), father.transform);
+        displayBackground = Instantiate(Resources.Load<GameObject>("Cafeteria/Background"), father.transform);
 
-        father.transform.localPosition = positionOrder;
-
-        SpriteRenderer displayRenderer = display.AddComponent<SpriteRenderer>();
+        displayRenderer = display.AddComponent<SpriteRenderer>();
         displayRenderer.sprite = GetComponent<PickUpable>().Needed;
         displayRenderer.sortingOrder = OrderInLayer;
 
+        displayBackgroundRenderer = displayBackground.GetComponent<SpriteRenderer>();
+
+        displayRenderer.color = new Color(1f, 1f, 1f, 0f);
+        displayBackgroundRenderer.color = new Color(1f, 1f, 1f, 0f);
+
+        alfaTransitionColor = new Color(0f, 0f, 0f, AlfaTransitionSpeed / 1000);
+
+        father.transform.localPosition = positionOrder;
     }
 
     void Update()
@@ -37,11 +51,19 @@ public class DisplayOrder : MonoBehaviour
 
         if (CheckIfInRange())
         {
-            father.SetActive(true);
+            if (displayRenderer.color.a < 1f)
+            {
+                displayRenderer.color += alfaTransitionColor;
+                displayBackgroundRenderer.color += alfaTransitionColor;
+            }
         }
         else
         {
-            father.SetActive(false);
+            if (displayRenderer.color.a > 0f)
+            {
+                displayRenderer.color -= alfaTransitionColor;
+                displayBackgroundRenderer.color -= alfaTransitionColor;
+            }
         }
     }
 

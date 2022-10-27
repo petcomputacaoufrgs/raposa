@@ -64,3 +64,4 @@ MonoBehaviour:
   positionOrder: {x: 0.3, y: 0.2, z: 0}
   InverseAmplitudeShake: 30
   VelocityShake: 3
+  AlfaTransitionSpeed: 10
