@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCPoints : MonoBehaviour
 {
     public float MaxPoints = 300f;
-    public float Decay = 20f;
+    private float Decay = 5f;
     public float PointsLost = 200f;
     public float ColorChangeSpeed = 1.5f;
     public Vector3 TimerPosition = new Vector3(0f, 0.3f, 0f);
