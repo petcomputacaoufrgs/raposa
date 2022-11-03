@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa9596c958dc643bba92631be017f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dist: 0.2
+  Dist: 0.3
   Consumable: 0
   Needed: {fileID: 21300000, guid: fe1b8a00efae217438fc90208dff3533, type: 3}
 --- !u!114 &-2744118468858890742
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RangeToAppear: 1
-  OrderInLayer: 4
+  OrderInLayer: 11
   positionOrder: {x: 0.3, y: 0.2, z: 0}
   InverseAmplitudeShake: 30
   VelocityShake: 3
