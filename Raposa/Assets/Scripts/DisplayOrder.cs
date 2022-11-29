@@ -10,6 +10,7 @@ public class DisplayOrder : MonoBehaviour
     public float InverseAmplitudeShake;
     public float VelocityShake;
     public float AlfaTransitionSpeed = 1f;
+    public bool Machine = false;
 
     private float timerDisplay = 0f;
     private GameObject player;
@@ -28,10 +29,10 @@ public class DisplayOrder : MonoBehaviour
 
         father = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), transform);
         display = Instantiate(Resources.Load<GameObject>("Cafeteria/EmptyPrefab"), father.transform);
-        displayBackground = Instantiate(Resources.Load<GameObject>("Cafeteria/Background"), father.transform);
+        displayBackground = Machine ? Instantiate(Resources.Load<GameObject>("Cafeteria/MachineBackground"), father.transform) : Instantiate(Resources.Load<GameObject>("Cafeteria/Background"), father.transform);
 
         displayRenderer = display.AddComponent<SpriteRenderer>();
-        displayRenderer.sprite = GetComponent<PickUpable>().Needed;
+        displayRenderer.sprite = Machine ? GetComponent<PickUpable>().Output : GetComponent<PickUpable>().Needed;
         displayRenderer.sortingOrder = OrderInLayer;
 
         displayBackgroundRenderer = displayBackground.GetComponent<SpriteRenderer>();

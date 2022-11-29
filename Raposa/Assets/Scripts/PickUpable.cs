@@ -7,7 +7,8 @@ public class PickUpable : MonoBehaviour
 {
     public float Dist = 0.2f; //Player distance to pickup item
     public bool Consumable; //Determines if the item will vanish after picking it up
-    public Sprite Needed; //If 'null' the item doesn't have prerequisits, else, determines the prerequisit
+    public Sprite Needed; //If 'null' the item doesn't have prerequisits, else, determines the prerequisitv
+    public Sprite Output; //
     private bool client; //Determines if the object this script is attached is a Client
     private GameObject player; //Variable assigned to the player GameObject
     private Vector2 distanceObject; //Distance between the object and the player

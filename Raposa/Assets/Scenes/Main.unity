@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 198427785}
   - component: {fileID: 198427784}
   - component: {fileID: 198427787}
+  - component: {fileID: 198427788}
   m_Layer: 0
   m_Name: coffeMachine (COFFEE)
   m_TagString: Untagged
@@ -639,6 +640,7 @@ MonoBehaviour:
   Dist: 0.3
   Consumable: 0
   Needed: {fileID: 21300000, guid: 3dc48dc6134263745bd67c761845b3e2, type: 3}
+  Output: {fileID: 21300000, guid: 7503b6541b85ed049b9739056b98f13f, type: 3}
 --- !u!114 &198427787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +654,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DepthLayer: 7
+--- !u!114 &198427788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198427781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeToAppear: 1
+  OrderInLayer: 11
+  positionOrder: {x: 0.15, y: 0.15, z: 0}
+  InverseAmplitudeShake: 5
+  VelocityShake: 0
+  AlfaTransitionSpeed: 1
+  Machine: 1
 --- !u!1 &237028439
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +965,7 @@ GameObject:
   - component: {fileID: 503162483}
   - component: {fileID: 503162482}
   - component: {fileID: 503162481}
+  - component: {fileID: 503162484}
   m_Layer: 0
   m_Name: Iced Tea
   m_TagString: Untagged
@@ -1036,6 +1058,7 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: 371e28cf0496b164d8053206588dd2a6, type: 3}
+  Output: {fileID: 21300000, guid: e3626d5c961987c4d970600577b8d480, type: 3}
 --- !u!114 &503162482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,6 +1097,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503162478}
   m_CullTransparentMesh: 1
+--- !u!114 &503162484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503162478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeToAppear: 1
+  OrderInLayer: 11
+  positionOrder: {x: -0.06, y: 0.33, z: 0}
+  InverseAmplitudeShake: 5
+  VelocityShake: 0
+  AlfaTransitionSpeed: 1
+  Machine: 1
 --- !u!1 &510955068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2115,7 @@ GameObject:
   - component: {fileID: 776263765}
   - component: {fileID: 776263764}
   - component: {fileID: 776263763}
+  - component: {fileID: 776263766}
   m_Layer: 0
   m_Name: Coffee Cup
   m_TagString: Untagged
@@ -2165,6 +2208,7 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 0}
+  Output: {fileID: 21300000, guid: 3dc48dc6134263745bd67c761845b3e2, type: 3}
 --- !u!114 &776263764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,6 +2247,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776263760}
   m_CullTransparentMesh: 1
+--- !u!114 &776263766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776263760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeToAppear: 1
+  OrderInLayer: 11
+  positionOrder: {x: 0.1, y: 0.16, z: 0}
+  InverseAmplitudeShake: 5
+  VelocityShake: 0
+  AlfaTransitionSpeed: 1
+  Machine: 1
 --- !u!1 &853833192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,6 +3913,7 @@ GameObject:
   - component: {fileID: 1222274043}
   - component: {fileID: 1222274042}
   - component: {fileID: 1222274045}
+  - component: {fileID: 1222274046}
   m_Layer: 0
   m_Name: microwaveShelf (TEA)
   m_TagString: Untagged
@@ -3980,6 +4044,7 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: 800a58c5844fdc7428f9c68d0e5b8757, type: 3}
+  Output: {fileID: 21300000, guid: 371e28cf0496b164d8053206588dd2a6, type: 3}
 --- !u!61 &1222274045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4006,6 +4071,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.52595425}
   m_EdgeRadius: 0
+--- !u!114 &1222274046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222274039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeToAppear: 1
+  OrderInLayer: 11
+  positionOrder: {x: 0, y: -0.05, z: 0}
+  InverseAmplitudeShake: 5
+  VelocityShake: 0
+  AlfaTransitionSpeed: 1
+  Machine: 1
 --- !u!1 &1223211687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,6 +4429,7 @@ GameObject:
   - component: {fileID: 1309374372}
   - component: {fileID: 1309374371}
   - component: {fileID: 1309374370}
+  - component: {fileID: 1309374373}
   m_Layer: 0
   m_Name: Iced Coffee
   m_TagString: Untagged
@@ -4437,6 +4522,7 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 21300000, guid: 7503b6541b85ed049b9739056b98f13f, type: 3}
+  Output: {fileID: 21300000, guid: 83f8eb2c57775eb4d9d3acad526488a6, type: 3}
 --- !u!114 &1309374371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4475,6 +4561,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309374367}
   m_CullTransparentMesh: 1
+--- !u!114 &1309374373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309374367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeToAppear: 1
+  OrderInLayer: 11
+  positionOrder: {x: 0.1, y: 0.35, z: 0}
+  InverseAmplitudeShake: 5
+  VelocityShake: 0
+  AlfaTransitionSpeed: 1
+  Machine: 1
 --- !u!1 &1338493685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,6 +4798,7 @@ GameObject:
   - component: {fileID: 1406463741}
   - component: {fileID: 1406463740}
   - component: {fileID: 1406463739}
+  - component: {fileID: 1406463742}
   m_Layer: 0
   m_Name: Tea Cup
   m_TagString: Untagged
@@ -4785,6 +4891,7 @@ MonoBehaviour:
   Dist: 0.2
   Consumable: 0
   Needed: {fileID: 0}
+  Output: {fileID: 21300000, guid: 800a58c5844fdc7428f9c68d0e5b8757, type: 3}
 --- !u!114 &1406463740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4823,6 +4930,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406463736}
   m_CullTransparentMesh: 1
+--- !u!114 &1406463742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406463736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b49c6751f3873444ac5d307c238fd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeToAppear: 1
+  OrderInLayer: 11
+  positionOrder: {x: -0.11, y: 0.13, z: 0}
+  InverseAmplitudeShake: 5
+  VelocityShake: 0
+  AlfaTransitionSpeed: 1
+  Machine: 1
 --- !u!1 &1434170370
 GameObject:
   m_ObjectHideFlags: 0
